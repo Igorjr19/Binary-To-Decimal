@@ -2,6 +2,7 @@ const valorBinarioElement = document.querySelector("#input-texto");
 const converterBotao = document.querySelector("#converter");
 const resultP = document.querySelector("#result");
 
+///////////////////////////////////////////////////////////////
 function isBinary(val) {
   return val.split("").filter((x) => x == "0" || x == "1").length == val.length;
 }
@@ -13,7 +14,27 @@ function BinaryToDecimal(bin) {
   }
   return decimal;
 }
+//////////////////////////////////////////////////////////////
 
+function DecimalToBinario(decimal) {
+  var binario = "";
+  var temp = decimal;
+
+  while(temp > 0){
+      if(temp % 2 == 0){
+          binario = "0" + binario;
+      }
+      else {
+          binario = "1" + binario;
+      }
+
+      temp = Math.floor(temp / 2);
+  }
+
+  return binario;
+}
+
+////////////////////////////////////////////////////////////////
 converterBotao.addEventListener("click", (e) => {
   e.preventDefault();
 
